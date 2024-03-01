@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:treatment_app/core/presentation/pages/home_screen.dart';
 import 'package:treatment_app/core/presentation/utils/text_styles.dart';
 import 'package:treatment_app/core/presentation/widgets/login_page.dart/blured_image.dart';
 import 'package:treatment_app/core/presentation/widgets/login_page.dart/button_custom.dart';
@@ -38,7 +39,12 @@ class LoginPage extends StatelessWidget {
                       textEditingController: passwordController,
                       title: "Password"),
                   const SizedBox(height: 60),
-                  CustomButton(onPressed: () {}, text: "Login"),
+                  CustomButton(
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => HomeScreen()));
+                      },
+                      text: "Login"),
                   const SizedBox(height: 90),
                   const CustomRichText()
                 ],

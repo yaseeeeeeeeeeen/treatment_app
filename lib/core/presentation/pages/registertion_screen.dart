@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:treatment_app/core/presentation/utils/colors.dart';
 import 'package:treatment_app/core/presentation/utils/static_datas.dart';
 import 'package:treatment_app/core/presentation/utils/text_styles.dart';
@@ -11,6 +8,7 @@ import 'package:treatment_app/core/presentation/widgets/login_page.dart/button_c
 import 'package:treatment_app/core/presentation/widgets/login_page.dart/text_filed.dart';
 import 'package:treatment_app/core/presentation/widgets/registration_screen/dropdown_textfield.dart';
 
+// ignore: must_be_immutable
 class RegistertionScreen extends StatelessWidget {
   RegistertionScreen({super.key});
   final TextEditingController nameController = TextEditingController();
@@ -22,7 +20,12 @@ class RegistertionScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-            leading: const Icon(Icons.arrow_back),
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
             actions: const [Icon(Icons.notifications), SizedBox(width: 10)],
             elevation: 0,
             backgroundColor: Colors.white),

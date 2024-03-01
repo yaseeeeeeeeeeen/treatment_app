@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:treatment_app/core/presentation/utils/colors.dart';
 import 'package:treatment_app/core/presentation/utils/text_styles.dart';
 
+// ignore: must_be_immutable
 class CounterAlertBox extends StatefulWidget {
   CounterAlertBox({super.key, required this.count});
   int count;

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:treatment_app/core/presentation/pages/registertion_screen.dart';
 import 'package:treatment_app/core/presentation/utils/colors.dart';
 import 'package:treatment_app/core/presentation/utils/text_styles.dart';
 import 'package:treatment_app/core/presentation/widgets/home_screen/dropdown_custom.dart';
@@ -13,8 +14,12 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            floatingActionButton:
-                CustomButton(onPressed: () {}, text: "Register Now"),
+            floatingActionButton: CustomButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => RegistertionScreen()));
+                },
+                text: "Register Now"),
             appBar: AppBar(
                 leading: const Icon(Icons.arrow_back),
                 actions: const [Icon(Icons.notifications), SizedBox(width: 10)],

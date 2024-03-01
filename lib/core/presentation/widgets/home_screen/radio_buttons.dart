@@ -40,7 +40,7 @@ class MyRadioListState extends State<MyRadioList> {
         IconButton(
           icon: Icon(
             Icons.circle_outlined,
-            color: isSelected ? AppColors.green : Colors.grey[700],
+            color: isSelected ? AppColors.green : Colors.grey[400],
           ),
           onPressed: () => onChanged(value),
         ),
