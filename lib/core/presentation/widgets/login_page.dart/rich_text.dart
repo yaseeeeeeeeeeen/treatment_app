@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:treatment_app/core/presentation/utils/text_styles.dart';
+import 'package:treatment_app/core/presentation/utils/constant/text_styles.dart';
 
 class CustomRichText extends StatelessWidget {
   const CustomRichText({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:treatment_app/core/presentation/utils/colors.dart';
+import 'package:treatment_app/core/presentation/utils/constant/colors.dart';
 import 'package:treatment_app/core/presentation/utils/static_datas.dart';
-import 'package:treatment_app/core/presentation/utils/text_styles.dart';
+import 'package:treatment_app/core/presentation/utils/constant/text_styles.dart';
 import 'package:treatment_app/core/presentation/widgets/home_screen/alert_box-counter.dart';
 import 'package:treatment_app/core/presentation/widgets/home_screen/radio_buttons.dart';
 import 'package:treatment_app/core/presentation/widgets/login_page.dart/button_custom.dart';

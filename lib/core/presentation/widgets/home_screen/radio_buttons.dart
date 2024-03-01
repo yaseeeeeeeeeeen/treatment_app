@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:treatment_app/core/presentation/utils/colors.dart';
+import 'package:treatment_app/core/presentation/utils/constant/colors.dart';
 
 class MyRadioList extends StatefulWidget {
   final List<String> options;

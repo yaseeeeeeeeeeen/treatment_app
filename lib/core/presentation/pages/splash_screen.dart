@@ -47,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   loginCheck() async {
-    await const Duration(seconds: 2);
+    await Future.delayed(const Duration(seconds: 5));
     Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(builder: (context) => LoginPage()), (route) => false);
   }

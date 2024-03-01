@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:treatment_app/core/presentation/utils/colors.dart';
+import 'package:treatment_app/core/presentation/utils/constant/colors.dart';
 
 class AppTextStyles {
   static TextStyle poppinsWhite =

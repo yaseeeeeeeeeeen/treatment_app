@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:treatment_app/core/presentation/pages/registertion_screen.dart';
-import 'package:treatment_app/core/presentation/utils/colors.dart';
-import 'package:treatment_app/core/presentation/utils/text_styles.dart';
+import 'package:treatment_app/core/presentation/utils/constant/colors.dart';
+import 'package:treatment_app/core/presentation/utils/constant/text_styles.dart';
 import 'package:treatment_app/core/presentation/widgets/home_screen/dropdown_custom.dart';
 import 'package:treatment_app/core/presentation/widgets/home_screen/list_tiles.dart';
 import 'package:treatment_app/core/presentation/widgets/home_screen/textfield_leading.dart';
