@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:treatment_app/core/presentation/pages/home_screen.dart';
 import 'package:treatment_app/core/presentation/pages/login_page.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return  MaterialApp(
       title: "Treatment App",
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: HomeScreen(),
     );
   }
 }
