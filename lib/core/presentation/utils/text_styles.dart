@@ -27,7 +27,7 @@ class AppTextStyles {
   static TextStyle hintText =
       TextStyle(color: Colors.black.withOpacity(0.6), fontFamily: "Poppins");
   static TextStyle textFieldTitle =
-      const TextStyle(fontSize: 18, fontFamily: "Poppins");
+      const TextStyle(fontSize: 16, fontFamily: "Poppins");
   static TextStyle homeSearch = TextStyle(
       fontFamily: "Poppins",
       color: Colors.black.withOpacity(0.2),

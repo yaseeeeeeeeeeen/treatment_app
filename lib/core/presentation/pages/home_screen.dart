@@ -11,7 +11,6 @@ class HomeScreen extends StatelessWidget {
   final TextEditingController treatmentController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.sizeOf(context);
     return SafeArea(
         child: Scaffold(
             floatingActionButton:
