@@ -1,9 +1,10 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
 import 'package:either_dart/either.dart';
 import 'package:treatment_app/core/presentation/utils/app_exeptions.dart';
-import 'package:http/http.dart'as http;
+import 'package:http/http.dart' as http;
 
 typedef EitherResponse = Future<Either<AppExceptions, dynamic>>;
 
@@ -34,10 +35,18 @@ class ApiService {
     if (token != null) {
       header["Authorization"] = "Bearer $token";
     }
+
     final uri = Uri.parse(url);
-    final body = jsonEncode(data);
+
     try {
-      final response = await http.post(uri, body: body, headers: header);
+      final request = http.MultipartRequest('POST', uri);
+      request.headers.addAll(header);
+      if (data is Map<String, dynamic>) {
+        data.forEach((key, value) {
+          request.fields[key] = value.toString();
+        });
+      }
+     final response = await http.Response.fromStream(await request.send());
       final responseBody = getResponse(response);
       return Right(responseBody);
     } on SocketException {

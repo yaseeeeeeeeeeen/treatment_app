@@ -11,8 +11,9 @@ final class LoginSuccsessState extends LoginState {
   LoginSuccsessState({required this.token});
 }
 
-final class LoginFailedState extends LoginState {
+final class FailedState extends LoginState {
   final String messege;
-
-  LoginFailedState({required this.messege});
+  FailedState({required this.messege});
 }
+
+final class DataFetchedSuccsessState extends LoginState{}
