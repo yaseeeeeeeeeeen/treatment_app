@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:treatment_app/core/presentation/pages/login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,10 +10,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
       title: "Treatment App",
       debugShowCheckedModeBanner: false,
+      home: LoginPage(),
     );
-
   }
 }
