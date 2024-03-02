@@ -6,7 +6,6 @@ class LoginRepo {
       {required String email, required String password}) async {
     var loginData = {"username": email, "password": password};
     String url = NetworkUrls.login;
-    print(loginData);
     return ApiService.postApi(loginData, url);
   }
 }

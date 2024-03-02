@@ -12,4 +12,10 @@ final class PatientAddedFailed extends PatientState {
   PatientAddedFailed({required this.messege});
 }
 
+final class DateSelctedSuccsessState extends PatientState {
+  final DateTime selctedDate;
+  final String formatedDate;
+  DateSelctedSuccsessState({required this.selctedDate,required this.formatedDate});
+}
+
 final class PatientAddedLoading extends PatientState {}

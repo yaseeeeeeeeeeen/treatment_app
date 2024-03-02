@@ -3,15 +3,20 @@ import 'package:treatment_app/core/presentation/utils/constant/colors.dart';
 import 'package:treatment_app/core/presentation/utils/constant/text_styles.dart';
 
 class CustomTextFiled extends StatelessWidget {
-  const CustomTextFiled(
+  CustomTextFiled(
       {super.key,
       required this.hintText,
       required this.textEditingController,
-      required this.title});
+      required this.title,
+      this.readOnly = false,
+      this.suffixIcon = const SizedBox(),this.textInputType=TextInputType.emailAddress});
+
   final TextEditingController textEditingController;
   final String title;
   final String hintText;
-
+  final bool readOnly;
+  final TextInputType textInputType;
+  final Widget suffixIcon;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -24,10 +29,12 @@ class CustomTextFiled extends StatelessWidget {
         SizedBox(
           height: 50,
           child: TextFormField(
+            keyboardType: textInputType,
             controller: textEditingController,
             decoration: InputDecoration(
               hintText: hintText,
               hintStyle: AppTextStyles.hintText,
+              suffixIcon: suffixIcon,
               filled: true,
               fillColor: Colors.grey.shade200,
               enabledBorder: const OutlineInputBorder(

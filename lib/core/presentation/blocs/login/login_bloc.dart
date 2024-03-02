@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:treatment_app/core/data/models/branches_model.dart';
+import 'package:treatment_app/core/data/models/tretment_list_model.dart';
 import 'package:treatment_app/core/data/repositories/datas_repo.dart';
 import 'package:treatment_app/core/data/repositories/login_repo.dart';
 
@@ -16,6 +17,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<LoginButtonClickedEvent>(loginButtonClickedEvent);
     on<FetchOtherDatas>(fetchOtherDatas);
   }
+  List<Branch> branch = [];
+  List treatment = [];
+  List pateients = [];
 
   FutureOr<void> loginButtonClickedEvent(
       LoginButtonClickedEvent event, Emitter<LoginState> emit) async {
@@ -23,10 +27,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     final response = await LoginRepo()
         .login(email: event.username, password: event.password);
     response.fold((left) {
-      
       emit(FailedState(messege: left.message));
     }, (right) {
-      print("Level One Compelete");
       emit(LoginSuccsessState(token: right["token"]));
     });
   }
@@ -38,27 +40,39 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         await HospitalDataRepo().branchGet(token: event.token);
     branchResponse.fold((left) {
       emit(FailedState(messege: left.message));
-    }, (right) async {
-      print("Level Two Compelete");
+    }, (right) {
+      print("Right $right");
       final branches = Branchs.fromJson(right);
-      print(branches.branches[0].name);
-      final treatmentResponse =
-          await HospitalDataRepo().treatmentList(token: event.token);
-      treatmentResponse.fold((left) {
-        emit(FailedState(messege: left.message));
-      }, (right) async {
-        print("Level Three Compelete");
-        print(right);
-        final patientResponse =
-            await HospitalDataRepo().patientList(token: event.token);
-        patientResponse.fold((left) {
-          emit(FailedState(messege: left.message));
-        }, (right) {
-          print("Level Four Compelete");
-          print(right);
-          emit(DataFetchedSuccsessState());
-        });
-      });
+      branch = branches.branches;
+      // print(branches.branches[0].name);
+
+      // final treatmentResponse =
+      //     await HospitalDataRepo().treatmentList(token: event.token);
+      // treatmentResponse.fold((left) {
+      //   emit(FailedState(messege: left.message));
+      // }, (right) async {
+      //   print("Level Three Compelete");
+      //   print(right);
+      //   final patientResponse =
+      //       await HospitalDataRepo().patientList(token: event.token);
+      //   patientResponse.fold((left) {
+      //     emit(FailedState(messege: left.message));
+      //   }, (right) {
+      //     print("Level Four Compelete");
+      //     print(right);
+      //     emit(DataFetchedSuccsessState());
+      //   });
+      // });
+    });
+
+    final treatmentResponse =
+        await HospitalDataRepo().treatmentList(token: event.token);
+    treatmentResponse.fold((left) {
+      emit(FailedState(messege: left.message));
+    }, (right) {
+      final treatmentDatas = Treatment.fromJson(right);
+
+      print(right);
     });
   }
 }
